@@ -15,10 +15,14 @@ class ChatCmplHelpers:
         return str(client.base_url).startswith("https://api.openai.com")
 
     @classmethod
-    def get_store_param(cls, client: AsyncOpenAI, model_settings: ModelSettings) -> bool | None:
-        # Match the behavior of Responses where store is True when not given
+    def get_store_param(
+        cls, client: AsyncOpenAI, model_settings: ModelSettings
+    ) -> bool | None:
+        # Match the behavior of Responses where store is True when not given.
         default_store = True if cls.is_openai(client) else None
-        return model_settings.store if model_settings.store is not None else default_store
+        return (
+            model_settings.store if model_settings.store is not None else default_store
+        )
 
     @classmethod
     def get_stream_options_param(
@@ -33,5 +37,7 @@ class ChatCmplHelpers:
             if model_settings.include_usage is not None
             else default_include_usage
         )
-        stream_options = {"include_usage": include_usage} if include_usage is not None else None
+        stream_options = (
+            {"include_usage": include_usage} if include_usage is not None else None
+        )
         return stream_options
