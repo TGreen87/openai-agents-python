@@ -56,6 +56,13 @@ source "$NVM_DIR/nvm.sh"
 nvm install "$NODE_VERSION" || nvm install node --reinstall-packages-from=node
 nvm use "$NODE_VERSION" || nvm use node
 
+if [ -d "ui" ]; then
+  echo "➤ Installing UI dependencies"
+  pushd ui >/dev/null
+  npm install
+  popd >/dev/null
+fi
+
 echo "➤ pre-commit"
 pre-commit install
 

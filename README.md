@@ -176,3 +176,15 @@ We'd like to acknowledge the excellent work of the open-source community, especi
 -   [uv](https://github.com/astral-sh/uv) and [ruff](https://github.com/astral-sh/ruff)
 
 We're committed to continuing to build the Agents SDK as an open source framework so others in the community can expand on our approach.
+
+## UI Development
+
+The optional UI is built with Next.js 15.3, React 19.1, Tailwind CSS 4.1.3 and shadcn/ui 2.5.0. To set it up:
+
+```bash
+cd ui
+npm install
+npm run dev
+```
+
+This starts the development server on <http://localhost:3000>.
